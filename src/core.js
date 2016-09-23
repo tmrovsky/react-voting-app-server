@@ -4,6 +4,8 @@
 
 import {Map, List} from 'immutable';
 
+export const INITIAL_STATE = Map();
+
 export function setEntries (state, entries) {
     return state.set('entries', List(entries));
 }
@@ -40,13 +42,3 @@ function getWinner (vote) {
     else return [item1, item2];
 
 }
-
-
-
-// vote: Map({
-//     pair: List.of('movie4', 'movie5'),
-//     label: Map({
-//         movie4: 2,
-//         movie5: 5
-//     })
-// })
