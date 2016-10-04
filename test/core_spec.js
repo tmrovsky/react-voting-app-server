@@ -104,45 +104,33 @@ describe('Application logic', () => {
 
         it('creates a label for the voted entry if not exist', () => {
             const state = Map({
-                entries: List(),
-                vote: Map({
-                    pair: List.of('movie1', 'movie2')
-                })
+                pair: List.of('movie1', 'movie2')
             });
             const nextState = vote(state, 'movie1');
 
             expect(nextState).to.equal(Map({
-                entries: List(),
-                vote: Map({
-                    pair: List.of('movie1', 'movie2'),
-                    label: Map({
-                        movie1: 1
-                    })
+                pair: List.of('movie1', 'movie2'),
+                label: Map({
+                    movie1: 1
                 })
             }));
         });
 
         it('increment number of votes for entry if its label exist ', () => {
             const state = Map({
-                entries: List(),
-                vote: Map({
-                    pair: List.of('movie1', 'movie2'),
-                    label: Map({
-                        movie1: 3,
-                        movie2: 1
-                    })
+                pair: List.of('movie1', 'movie2'),
+                label: Map({
+                    movie1: 3,
+                    movie2: 1
                 })
             });
             const nextState = vote(state, 'movie1');
 
             expect(nextState).to.equal(Map({
-                entries: List(),
-                vote: Map({
-                    pair: List.of('movie1', 'movie2'),
-                    label: Map({
-                        movie1: 4,
-                        movie2: 1
-                    })
+                pair: List.of('movie1', 'movie2'),
+                label: Map({
+                    movie1: 4,
+                    movie2: 1
                 })
             }));
         });
